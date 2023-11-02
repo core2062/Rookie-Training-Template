@@ -17,16 +17,22 @@ import frc.robot.subsystems.MotorSubsystem;
  * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
  * subsystems, commands, and trigger mappings) should be declared here.
  */
+
+
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-
+  
   //Replace with CommandPS4Controller or CommandJoystick if needed
   private final CommandXboxController m_driverController =
       new CommandXboxController(JoystickConstants.kDriverControllerPort);
-  
+  private final MotorSubsystem m_MotorSubsystem = new MotorSubsystem();
+
+
+
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
+    m_MotorSubsystem.MotorMethodCommand(0.2);
     configureBindings();
   }
 
