@@ -1,19 +1,24 @@
 package frc.robot.commands;
 
+import java.util.function.DoubleSupplier;
+
+import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.networktables.DoubleSubscriber;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.MotorSubsystem;
 
 public class MoveCommand extends CommandBase{
 
     private MotorSubsystem m_subsystem;
-  
+
     /**
-     * Creates a new ExampleCommand.
+     * A command that takes in a value given by a joystick axis and sets motors within 
+     * MotorMethodCommand to the value of the joysticks x- or y-axis value
      *
      * @param subsystem The subsystem used by this command.
      */
-    public MoveCommand(MotorSubsystem subsystem, double timeout) {
-      m_subsystem = subsystem;
+    public MoveCommand(MotorSubsystem subsystem, DoubleSupplier speedSup) {
+      this.m_subsystem = subsystem;
       // Use addRequirements() here to declare subsystem dependencies.
       addRequirements(subsystem);
     }
@@ -26,18 +31,5 @@ public class MoveCommand extends CommandBase{
     // Called every time the scheduler runs while the command is scheduled.
     @Override
     public void execute() {
-    }
-  
-    // Returns true when the command should end.
-    @Override
-    public boolean isFinished() {
-        return (Boolean) null;
-    }
-
-    /* 
-     * The purpose of the timeout is to allow for a delay between actions ran
-     * This allows for modification and adjustability between when actions are ran
-     * the delay is set within each auto meaning that the time between when the soleniod is toggeled is different for each auto
-     */ 
-    
+    }    
 }

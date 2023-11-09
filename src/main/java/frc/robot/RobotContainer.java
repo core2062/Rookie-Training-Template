@@ -5,10 +5,12 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.MotorSafety;
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.Constants.*;
+import frc.robot.commands.MoveCommand;
 import frc.robot.subsystems.MotorSubsystem;
 
 /**
@@ -27,12 +29,12 @@ public class RobotContainer {
       new CommandXboxController(JoystickConstants.kDriverControllerPort);
   private final MotorSubsystem m_MotorSubsystem = new MotorSubsystem();
 
-
+  private final double speed = 0.0;
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
-    m_MotorSubsystem.MotorMethodCommand(0.2);
+    m_MotorSubsystem.MotorMethodCommand(speed);
     configureBindings();
   }
 
